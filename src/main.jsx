@@ -5,12 +5,24 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "./index.css";
-import Header from "./Component/Header/Header.jsx";
+import Main from "./Main/Main.jsx";
+import BookList from "./Component/BookList/BookList.jsx";
+import WishList from "./Component/Wishlist/WishList.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Header></Header>,
+    element: <Main></Main>,
+    children:[
+     {
+      path: "/",
+      element:<BookList></BookList>
+     },
+     {
+      path: "/wishlist",
+      element:<WishList></WishList>
+     }
+    ]
   },
 ]);
 
